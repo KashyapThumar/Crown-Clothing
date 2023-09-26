@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import Button from "../button/button.component";
 import CartItems from "../cart-item/cart-item.component";
 import "./cart-dropdown.scss";
@@ -14,7 +14,7 @@ const CartDropdown = () => {
   };
 
   return (
-    <div className="cart-dropdown-container">
+    <div >
       <div className="cart-items">
         {cartItems.map((item) => {
           return <CartItems cartItemArr={item} key={item.id} />;
