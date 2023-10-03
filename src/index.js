@@ -3,23 +3,24 @@ import { render } from "react-dom";
 import "./index.scss";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
-import { UserProvider } from "./contex/user.contex";
 import { CategoriesProvider } from "./contex/categories.contex";
 import { CartProvider } from "./contex/cart.contex";
+import { Provider } from "react-redux";
+import { Store } from "../src/store/Store";
 
 const rootElement = document.getElementById("root");
 
 render(
   <React.StrictMode>
-    <BrowserRouter>
-      <UserProvider>
+    <Provider store={Store}>
+      <BrowserRouter>
         <CategoriesProvider>
           <CartProvider>
             <App />
           </CartProvider>
         </CategoriesProvider>
-      </UserProvider>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   rootElement
 );
